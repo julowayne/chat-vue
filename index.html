@@ -49,12 +49,13 @@
     display: none;
   }
   @media only screen and (max-width: 768px) {
-  .arrow {
-    display: none;
-  }
-  .arrow-down {
-    display: block;
-  }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar {
+      display: none;
+    }
   .overflow-y {
     max-height: 30vh;
   }
