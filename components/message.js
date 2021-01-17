@@ -16,7 +16,6 @@ const message = {
       }
       this.messages.push(this.message)
       this.message = ""
-      console.log(this.messages)
     }
   },
   template: `
