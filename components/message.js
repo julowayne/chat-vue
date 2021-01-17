@@ -1,11 +1,11 @@
 const message = {
   data (){
     return {
-      id: moment.now(),
+      id: Date.now(),
       username: "",
       message: "",
       messages: [],
-      date: moment().format('HH:mm'),
+      // date: moment().format('HH:mm:ss'),
       loggedUser: "Jules TD"
     }
   },
@@ -14,17 +14,20 @@ const message = {
       if(!this.message){
           return
       }
-      this.messages.push(this.message)
+      this.messages.push({message: this.message, date: this.getDate()})
       this.message = ""
+    },
+    getDate(){
+      return moment().format('HH:mm:ss')
     }
   },
   template: `
   <div class="col-md-7 border-left">
     <h4 class="text-center mb-3 p-3"><strong>Conversation <span class="mdi mdi-18px mdi-forum"></span></strong></h4>
     <h5><strong>{{ loggedUser }}</strong></h5>
-    <div class="d-flex m-2 p-2 bg-info w-50 shadow-sm rounded justify-content-between" v-for="message in messages"><strong> {{ message }} </strong>
+    <div class="d-flex m-2 p-2 bg-info w-50 shadow-sm rounded justify-content-between" v-for="message in messages"><strong> {{ message.message }} </strong>
     <span>
-     {{ date }}
+     {{ message.date }}
       <span class="mdi mdi-18px mdi-check"></span>
      </span>
     </div>
