@@ -9,7 +9,7 @@ const user = {
   },
   methods: {
     generateUser(){
-      this.user.username = faker.fake("{{name.lastName}}, {{name.firstName}}");
+      this.user.username = faker.fake("{{name.lastName}} {{name.firstName}}");
       this.$emit('user', this.user.username);
     },
   },
